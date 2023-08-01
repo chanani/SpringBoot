@@ -1,0 +1,20 @@
+# mysql subquery
+
+select *
+from (
+select @rownum := @rownum + 1 as rn,
+		a.*
+From(
+	select *
+    from product
+    where prod_writer = 'admin'
+    order by prod_id desc
+) as a, (select @rownum := 0) as b
+) as c
+where rn > 0 and rn <= 10;
+
+# mysql limit
+select * from PRODUCT
+where prod_writer = 'admin'
+order by PROD_ID DESC
+limit 20,10; # 데이터의 시작, 데이터의 수
