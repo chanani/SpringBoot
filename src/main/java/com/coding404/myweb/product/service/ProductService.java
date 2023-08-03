@@ -1,8 +1,10 @@
 package com.coding404.myweb.product.service;
 
 
+import com.coding404.myweb.command.CategoryVO;
 import com.coding404.myweb.command.ProductVO;
 import com.coding404.myweb.util.Criteria;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 
@@ -15,6 +17,9 @@ public interface ProductService {
     public int productUpdate(ProductVO vo);
     public void productDelete(int prod_id);
 
+    // 카테고리처리
+    public ArrayList<CategoryVO> getCategory();
+    public ArrayList<CategoryVO> getCategoryChild(CategoryVO vo);
 
 
 
